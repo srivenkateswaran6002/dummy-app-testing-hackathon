@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply antialiased text-gray-300 bg-[#0a0a0c] transition-colors duration-200 overflow-x-hidden;
+  }
+
+  body.high-contrast {
+    @apply bg-black text-white;
+  }
+
+  /* Light/Dark Theme Modes */
+  body.light-mode {
+    @apply bg-gray-50 text-gray-900;
+  }
+  
+  body.dark-mode {
+    @apply bg-[#0a0a0c] text-gray-100;
+  }
+
+  /* High Contrast overrides */
+  .high-contrast * {
+    border-color: white !important;
+  }
+
+  .high-contrast .bg-white,
+  .high-contrast .bg-gray-50,
+  .high-contrast .bg-gray-100,
+  .high-contrast .bg-gray-800,
+  .high-contrast .bg-gray-900,
+  .high-contrast .bg-blue-600,
+  .high-contrast .bg-blue-500,
+  .high-contrast [class*="bg-[#0a0f12]"],
+  .high-contrast [class*="bg-[#111]"],
+  .high-contrast .bg-gray-900\/50,
+  .high-contrast .bg-gray-800\/50,
+  .high-contrast .bg-black\/50,
+  .high-contrast .bg-opacity-50,
+  .high-contrast .bg-opacity-80 {
+    background-color: transparent !important;
+    border: 2px solid white !important;
+  }
+  
+  .high-contrast svg path, 
+  .high-contrast svg circle {
+    stroke: white !important;
+    fill: transparent !important;
+  }
+
+  .high-contrast .text-gray-300,
+  .high-contrast .text-gray-400,
+  .high-contrast .text-gray-500,
+  .high-contrast .text-emerald-400,
+  .high-contrast .text-blue-400,
+  .high-contrast .text-yellow-400,
+  .high-contrast .text-red-400,
+  .high-contrast .text-purple-400,
+  .high-contrast .text-orange-400 {
+    color: white !important;
+  }
+
+  /* Text Sizes - using zoom for proportional scaling of ALL text */
+  body.text-large {
+    zoom: 1.1;
+  }
+  
+  body.text-xlarge {
+    zoom: 1.3;
+  }
+
+  /* Focus Styles */
+  *:focus-visible {
+    @apply outline-none ring-4 ring-emerald-500 ring-offset-2 ring-offset-[#0a0a0c];
+  }
+
+  .high-contrast *:focus-visible {
+    @apply ring-yellow-400 ring-offset-black;
+  }
+
+  /* Reduced Motion - comprehensive */
+  body.reduce-motion *,
+  body.reduce-motion *::before,
+  body.reduce-motion *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  
+  body.reduce-motion svg * {
+    animation: none !important;
+  }
+
+  /* Color Blind Friendly - Deuteranopia (most common) */
+  body.colorblind-deuteranopia .text-emerald-500,
+  body.colorblind-deuteranopia .text-green-500,
+  body.colorblind-deuteranopia .text-green-400 {
+    color: #3b82f6 !important;
+  }
+  body.colorblind-deuteranopia .bg-emerald-500,
+  body.colorblind-deuteranopia .bg-green-500,
+  body.colorblind-deuteranopia .bg-green-400 {
+    background-color: #3b82f6 !important;
+  }
+  body.colorblind-deuteranopia .text-red-500,
+  body.colorblind-deuteranopia .text-red-400,
+  body.colorblind-deuteranopia .text-orange-500,
+  body.colorblind-deuteranopia .text-orange-400,
+  body.colorblind-deuteranopia .text-amber-500 {
+    color: #fbbf24 !important;
+  }
+  body.colorblind-deuteranopia .bg-red-500,
+  body.colorblind-deuteranopia .bg-red-400,
+  body.colorblind-deuteranopia .bg-orange-500,
+  body.colorblind-deuteranopia .bg-orange-400,
+  body.colorblind-deuteranopia .bg-amber-500 {
+    background-color: #fbbf24 !important;
+  }
+  body.colorblind-deuteranopia .text-emerald-600,
+  body.colorblind-deuteranopia .text-green-600 {
+    color: #2563eb !important;
+  }
+  body.colorblind-deuteranopia .bg-emerald-600,
+  body.colorblind-deuteranopia .bg-green-600 {
+    background-color: #2563eb !important;
+  }
+
+  /* Color Blind Friendly - Protanopia */
+  body.colorblind-protanopia .text-emerald-500,
+  body.colorblind-protanopia .text-green-500,
+  body.colorblind-protanopia .text-green-400 {
+    color: #3b82f6 !important;
+  }
+  body.colorblind-protanopia .bg-emerald-500,
+  body.colorblind-protanopia .bg-green-500,
+  body.colorblind-protanopia .bg-green-400 {
+    background-color: #3b82f6 !important;
+  }
+  body.colorblind-protanopia .text-red-500,
+  body.colorblind-protanopia .text-red-400,
+  body.colorblind-protanopia .text-orange-500,
+  body.colorblind-protanopia .text-orange-400,
+  body.colorblind-protanopia .text-amber-500 {
+    color: #fbbf24 !important;
+  }
+  body.colorblind-protanopia .bg-red-500,
+  body.colorblind-protanopia .bg-red-400,
+  body.colorblind-protanopia .bg-orange-500,
+  body.colorblind-protanopia .bg-orange-400,
+  body.colorblind-protanopia .bg-amber-500 {
+    background-color: #fbbf24 !important;
+  }
+  body.colorblind-protanopia .text-emerald-600,
+  body.colorblind-protanopia .text-green-600 {
+    color: #2563eb !important;
+  }
+  body.colorblind-protanopia .bg-emerald-600,
+  body.colorblind-protanopia .bg-green-600 {
+    background-color: #2563eb !important;
+  }
+
+  /* Color Blind Friendly - Tritanopia (blue/yellow) */
+  body.colorblind-tritanopia .text-blue-500,
+  body.colorblind-tritanopia .text-blue-400,
+  body.colorblind-tritanopia .text-indigo-500 {
+    color: #ef4444 !important;
+  }
+  body.colorblind-tritanopia .bg-blue-500,
+  body.colorblind-tritanopia .bg-blue-400,
+  body.colorblind-tritanopia .bg-indigo-500 {
+    background-color: #ef4444 !important;
+  }
+  body.colorblind-tritanopia .text-yellow-500,
+  body.colorblind-tritanopia .text-yellow-400,
+  body.colorblind-tritanopia .text-amber-500 {
+    color: #f97316 !important;
+  }
+  body.colorblind-tritanopia .bg-yellow-500,
+  body.colorblind-tritanopia .bg-yellow-400,
+  body.colorblind-tritanopia .bg-amber-500 {
+    background-color: #f97316 !important;
+  }
+  body.colorblind-tritanopia .text-violet-500,
+  body.colorblind-tritanopia .text-purple-500 {
+    color: #ec4899 !important;
+  }
+  body.colorblind-tritanopia .bg-violet-500,
+  body.colorblind-tritanopia .bg-purple-500 {
+    background-color: #ec4899 !important;
+  }
+
+  /* Color Blind Friendly - Achromatopsia (monochrome) */
+  body.colorblind-achromatopsia * {
+    filter: grayscale(100%) !important;
+  }
+  body.colorblind-achromatopsia .high-contrast * {
+    filter: none !important;
+  }
+
+  /* Light mode overrides for better contrast */
+  body.light-mode .bg-gray-900\/50,
+  body.light-mode .bg-gray-800\/50,
+  body.light-mode .bg-gray-900,
+  body.light-mode .bg-gray-800,
+  body.light-mode [class*="bg-[#111]"] {
+    @apply bg-gray-100 border border-gray-200;
+  }
+  body.light-mode [class*="bg-[#0a0f12]"] {
+    @apply bg-gray-200;
+  }
+  body.light-mode .border-gray-800,
+  body.light-mode .border-gray-700 {
+    @apply border-gray-200;
+  }
+  body.light-mode .text-gray-300 {
+    @apply text-gray-700;
+  }
+  body.light-mode .text-gray-400 {
+    @apply text-gray-600;
+  }
+  body.light-mode .text-gray-500 {
+    @apply text-gray-500;
+  }
+  body.light-mode .bg-emerald-900\/20 {
+    @apply bg-emerald-100;
+  }
+  body.light-mode .bg-blue-900\/20 {
+    @apply bg-blue-100;
+  }
+  body.light-mode .bg-orange-900\/20 {
+    @apply bg-orange-100;
+  }
+  body.light-mode .bg-purple-900\/20 {
+    @apply bg-purple-100;
+  }
+  body.light-mode .bg-red-900\/20 {
+    @apply bg-red-100;
+  }
+  body.light-mode .bg-gray-700 {
+    @apply bg-gray-200;
+  }
+  body.light-mode .hover\:bg-gray-700:hover {
+    @apply bg-gray-300;
+  }
+  body.light-mode .hover\:bg-gray-800:hover {
+    @apply bg-gray-300;
+  }
+  body.light-mode .bg-\[\#0a0a0c\] {
+    @apply bg-gray-50;
+  }
+  /* Text on dark cards - make headings readable in light mode */
+  body.light-mode h1,
+  body.light-mode h2,
+  body.light-mode h3 {
+    @apply text-gray-900;
+  }
+  body.light-mode .text-emerald-400 {
+    @apply text-emerald-600;
+  }
+  body.light-mode .text-blue-400 {
+    @apply text-blue-600;
+  }
+  body.light-mode .text-orange-400 {
+    @apply text-orange-600;
+  }
+  body.light-mode .text-purple-400 {
+    @apply text-purple-600;
+  }
+}
